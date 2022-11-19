@@ -25,7 +25,7 @@ cd hackrth
 ```
 To build the apk, execute
 ```shell
-export DYLD_LIBRARY_PATH="/usr/local/lib/"
+export DYLD_LIBRARY_PATH="/usr/local/lib/"  # for mac/Linux
 briefcase build android -u
 ```
 The built apk will be at `hackrth/android/gradle/HackRTH/app/build/outputs/apk/debug/app-debug.apk`
