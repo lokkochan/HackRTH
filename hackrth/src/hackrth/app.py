@@ -57,7 +57,8 @@ class HackRTH(toga.App):
         new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View Tasks'
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
-        task_list=task_menu()
+        new_box.add(toga.Divider())
+        task_list = task_menu()
         view_options = [
             toga.Button(task_list[0], on_press=self.task_view, style=Pack(padding=3)),
             toga.Button(task_list[1], on_press=self.history_view, style=Pack(padding=3)),
@@ -77,6 +78,13 @@ class HackRTH(toga.App):
         new_box = toga.Box()
         self.main_window.title = 'View Points'
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
+        self.main_window.content = new_box
+
+    def store_data(self, widget):
+        # store data
+        new_box = toga.Box()
+        self.main_window.title = 'Store Data'
+        new_box.add(toga.Label('Store Data', style=Pack(padding=3)))
         self.main_window.content = new_box
 
 
