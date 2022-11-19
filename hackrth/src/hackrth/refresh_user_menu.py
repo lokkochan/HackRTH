@@ -60,11 +60,11 @@ def print_menu():
     elif diff3 ==6:
         num_pushups = 5 * diff3
 
-    option1 = f'{action} {distance} km.'
+    option1 = [f'{action} {distance} km.', diff1]
 
-    option2 = f'Climb {num_stairs} stairs'
+    option2 = [f'Climb {num_stairs} stairs',diff2]
 
-    option3 = f'Do {num_pushups} pushups'
+    option3 = [f'Do {num_pushups} pushups', diff3]
 
     option_list = [option1, option2, option3]
     
