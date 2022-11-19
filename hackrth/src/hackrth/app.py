@@ -7,7 +7,6 @@ from toga.style.pack import COLUMN, ROW
 
 
 class HackRTH(toga.App):
-
     def startup(self):
         """
         Construct and show the Toga application.
@@ -24,7 +23,6 @@ class HackRTH(toga.App):
         ]
         for options in view_options:
             main_box.add(options)
-
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
         self.main_window.show()
@@ -32,11 +30,9 @@ class HackRTH(toga.App):
     def task_view(self, widget):
         new_box = toga.Box()
         self.main_window.title = 'View Tasks'
-        # path_label = toga.Label(str(toga.app().paths))
+        path_label = toga.Label(str(dir(self.paths.Path())))
+        new_box.add(path_label)
         self.main_window.content = new_box
-
-        # Store file in application storage (android)
-
 
     def history_view(self, widget):
         new_box = toga.Box()
