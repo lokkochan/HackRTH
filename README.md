@@ -15,7 +15,7 @@ Health ......
 
 ## Build Instructions
 ### Requirements
-python>=3.9
+`python>=3.9`
 ### Build
 ```shell
 pip install -r requirements.txt
