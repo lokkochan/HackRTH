@@ -1,9 +1,6 @@
 #user menu
 import random
 
-time = 6
-days_passed = 0
-
 def print_menu():
     distance = 0
     num_stairs = 0
@@ -39,6 +36,29 @@ def print_menu():
 
     if diff2 == 1:
         num_stairs = 10 * diff2
+    elif diff2 == 2:
+        num_stairs = 10 * diff2
+    elif diff2 ==3:
+        num_stairs = 10 * diff2
+    elif diff2 ==4:
+        num_stairs = 10 * diff2
+    elif diff2 ==5:
+        num_stairs = 10 * diff2
+    elif diff2 ==6:
+        num_stairs = 10 * diff2
+
+    if diff3 == 1:
+        num_stairs = 5 * diff3
+    elif diff3 == 2:
+        num_stairs = 5 * diff3
+    elif diff3 ==3:
+        num_stairs = 5 * diff3
+    elif diff3 ==4:
+        num_stairs =  5 * diff3
+    elif diff3 ==5:
+        num_stairs = 5 * diff3
+    elif diff3 ==6:
+        num_stairs = 5 * diff3
 
     option1 = f'{action} {distance} km.'
 
@@ -48,15 +68,4 @@ def print_menu():
     
     print(f'Tasks for today: \n1.{option1}\n2. {option2}\n3. {option3}')
 
-#refresh menu
-if time != 6:
-    #wait 1 hour
-    time += 1
-    if time == 24:
-        time = 0
-        days_passed += 1
-else:
-    print_menu()
-    #wait 1 hour
-    time += 1 
 
