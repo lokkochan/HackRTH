@@ -63,15 +63,15 @@ class HackRTH(toga.App):
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         task_list = task_menu()
         view_options = [
-            toga.Button((task_list[0][0]+'  '+str(task_list[0][1])), on_press=self.work_done_view(None, task_list[0][1]), style=Pack(padding=3)),
-            toga.Button((task_list[1][0]+'  '+str(task_list[1][1])), on_press=self.work_done_view(None, task_list[1][1]), style=Pack(padding=3)),
-            toga.Button((task_list[2][0]+'  '+str(task_list[2][1])), on_press=self.work_done_view(None, task_list[2][1]), style=Pack(padding=3)),
+            toga.Button((task_list[0][0]+'  '+str(task_list[0][1])), on_press=self.work_done_view, style=Pack(padding=3)),
+            toga.Button((task_list[1][0]+'  '+str(task_list[1][1])), on_press=self.work_done_view, style=Pack(padding=3)),
+            toga.Button((task_list[2][0]+'  '+str(task_list[2][1])), on_press=self.work_done_view, style=Pack(padding=3)),
         ]
         for options in view_options:
             new_box.add(options)
         self.main_window.content = new_box
 
-    def work_done_view(self, widget, points_in):
+    def work_done_view(self, widget):
         new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View Tasks'
         new_box.add(toga.Label("Congrats!! you earn the points~"))
@@ -92,6 +92,7 @@ class HackRTH(toga.App):
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         new_box.add(toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3)))  
         new_box.add(toga.Button('Reset', on_press=self.reset_view, style=Pack(padding=3)))
+        toga.
         new_box.add(toga.Label("You have got  points."))     
         self.main_window.content = new_box
 
