@@ -42,6 +42,7 @@ def redeem():
     '''Will implant to generate a QR code for scanning to redeem the points'''
     qr_code = qrg.qr_gen()
     return qr_code
+    #qr code should return discount code to be scanned by retailers, or display a dollar amount discount from total (100 pts = $1 discount?)
 
 def task_menu():
     time = 6
