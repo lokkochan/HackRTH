@@ -57,7 +57,6 @@ class HackRTH(toga.App):
         new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View Tasks'
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
-        new_box.add(toga.Divider())
         task_list = task_menu()
         view_options = [
             toga.Button((task_list[0][0]+'  '+str(task_list[0][1])), on_press=self.work_done_view, style=Pack(padding=3)),
