@@ -92,7 +92,7 @@ class HackRTH(toga.App):
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         new_box.add(toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3)))  
         new_box.add(toga.Button('Reset', on_press=self.reset_view, style=Pack(padding=3)))
-        toga.
+    
         new_box.add(toga.Label("You have got  points."))     
         self.main_window.content = new_box
 
