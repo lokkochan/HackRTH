@@ -1,4 +1,4 @@
-#user menu
+# user menu
 import random
 
 def print_menu():
