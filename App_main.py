@@ -3,7 +3,7 @@ Code to change 2022
 RTHbuddy sponsoredbyRTH
 """
 import hackrth.src.hackrth.refresh_user_menu as rum
-import qr_gen as qrg
+import hackrth.src.hackrth.qr_gen as qrg
 
 class users:
     def __init__(self, name, points, task_history):
