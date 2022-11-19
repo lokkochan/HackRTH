@@ -4,8 +4,8 @@ Try to create an Andriod app
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
-import hackrth.src.hackrth.refresh_user_menu as rum
-import qr_gen as qrg
+from . import refresh_user_menu as rum
+# import qr_gen as qrg
 
 
 class HackRTH(toga.App):
@@ -35,21 +35,21 @@ class HackRTH(toga.App):
         new_box = toga.Box()
         self.main_window.title = 'View Tasks'
         # path_label = toga.Label(str(toga.app().paths))
-        time = 6
-        days_passed = 0
+        # time = 6
+        # days_passed = 0
 
-        #refresh menu
-        if time != 6:
-            #wait 1 hour
-            time += 1
-            if time == 24:
-                time = 0
-                days_passed += 1
-            else:
-                rum.print_menu()
-                #wait 1 hour
-                time += 1 
-        self.main_window.content = new_box
+        # #refresh menu
+        # if time != 6:
+        #     #wait 1 hour
+        #     time += 1
+        #     if time == 24:
+        #         time = 0
+        #         days_passed += 1
+        #     else:
+        #         rum.print_menu()
+        #         #wait 1 hour
+        #         time += 1
+        # self.main_window.content = new_box
 
         # Store file in application storage (android)
 
