@@ -23,7 +23,7 @@ class HackRTH(toga.App):
         self.main_view()
         self.main_window.show()
 
-    def main_view(self, widget):
+    def main_view(self, widget=None):
         ##split 2 into view and start up
         main_box = toga.Box(style=Pack(direction=COLUMN, padding=2))
         view_options = [
