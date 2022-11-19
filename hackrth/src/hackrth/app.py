@@ -39,7 +39,8 @@ class HackRTH(toga.App):
     def task_view(self, widget):
         new_box = toga.Box()
         self.main_window.title = 'View Tasks'
-
+        self.main_window.content = new_box
+]
         # path_label = toga.Label(str(toga.app().paths))
         # time = 6
         # days_passed = 0
@@ -55,7 +56,7 @@ class HackRTH(toga.App):
         #         rum.print_menu()
     #         #wait 1 hour
     #         time += 1
-        # self.main_window.content = new_box
+
 
         # Store file in application storage (android)
 
