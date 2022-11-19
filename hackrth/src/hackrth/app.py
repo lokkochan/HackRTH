@@ -4,6 +4,8 @@ Try to create an Andriod app
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
+import hackrth.src.hackrth.refresh_user_menu as rum
+import qr_gen as qrg
 
 
 class HackRTH(toga.App):

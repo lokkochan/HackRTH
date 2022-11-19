@@ -2,7 +2,7 @@
 Code to change 2022
 RTHbuddy sponsoredbyRTH
 """
-import refresh_user_menu as rum
+import hackrth.src.hackrth.refresh_user_menu as rum
 import qr_gen as qrg
 
 class users:
