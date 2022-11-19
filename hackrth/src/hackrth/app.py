@@ -5,8 +5,7 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 from . import refresh_user_menu as rum
-# import qr_gen as qrg
-
+#import qr_gen as qrg
 
 def task_menu():
     # time = 6
@@ -24,6 +23,11 @@ def task_menu():
     #         #wait 1 hour
     #         time += 1 
     return rum.print_menu()
+
+# def redeem():
+#     '''Will implant to generate a QR code for scanning to redeem the points'''
+#     qr_code = qrg.qr_gen()
+#     return qr_code
 
 
 class HackRTH(toga.App):
@@ -45,8 +49,8 @@ class HackRTH(toga.App):
         main_box = toga.Box(style=Pack(direction=COLUMN, padding=2))
         view_options = [
             toga.Button('View Tasks', on_press=self.task_view, style=Pack(padding=3)),
-            toga.Button('View History', on_press=self.task_view, style=Pack(padding=3)),
-            toga.Button('View Points', on_press=self.task_view, style=Pack(padding=3)),
+            toga.Button('View History', on_press=self.history_view, style=Pack(padding=3)),
+            toga.Button('View Points', on_press=self.points_view, style=Pack(padding=3)),
         ]
         for options in view_options:
             main_box.add(options)
@@ -59,19 +63,21 @@ class HackRTH(toga.App):
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         task_list = task_menu()
         view_options = [
-            toga.Button((task_list[0][0]+'  '+str(task_list[0][1])), on_press=self.work_done_view, style=Pack(padding=3)),
-            toga.Button((task_list[1][0]+'  '+str(task_list[1][1])), on_press=self.work_done_view, style=Pack(padding=3)),
-            toga.Button((task_list[2][0]+'  '+str(task_list[2][1]), on_press=self.work_done_view, style=Pack(padding=3)),
+            toga.Button((task_list[0][0]+'  '+str(task_list[0][1])), on_press=self.work_done_view(None, task_list[0][1]), style=Pack(padding=3)),
+            toga.Button((task_list[1][0]+'  '+str(task_list[1][1])), on_press=self.work_done_view(None, task_list[1][1]), style=Pack(padding=3)),
+            toga.Button((task_list[2][0]+'  '+str(task_list[2][1])), on_press=self.work_done_view(None, task_list[2][1]), style=Pack(padding=3)),
         ]
         for options in view_options:
             new_box.add(options)
         self.main_window.content = new_box
 
-    def work_done_view(self, widget):
+    def work_done_view(self, widget, points_in):
         new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View Tasks'
-        
-        new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
+        new_box.add(toga.Label("Congrats!! you earn the points~"))
+        new_box.add(toga.Button('Complete', on_press=self.main_view, style=Pack(padding=3)))
+        points+=points_in
+        self.main_window.content = new_box
 
 
     def history_view(self, widget):
@@ -84,6 +90,15 @@ class HackRTH(toga.App):
         new_box = toga.Box()
         self.main_window.title = 'View Points'
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
+        new_box.add(toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3)))  
+        new_box.add(toga.Label("You have got  points."))     
+        self.main_window.content = new_box
+
+    def redeem_view(self, widget):
+        new_box = toga.Box()
+        self.main_window.title = 'Redeem Points'
+        #new_box.add(toga.Label(redeem()))
+        new_box.add(toga.Button('Finish', on_press=self.main_view, style=Pack(padding=3)))
         self.main_window.content = new_box
 
     def store_data(self, widget):
