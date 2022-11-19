@@ -76,7 +76,7 @@ class HackRTH(toga.App):
         self.main_window.title = 'View Tasks'
         new_box.add(toga.Label("Congrats!! you earn the points~"))
         new_box.add(toga.Button('Complete', on_press=self.main_view, style=Pack(padding=3)))
-        points+=points_in
+        #points+=points_in
         self.main_window.content = new_box
 
 
@@ -87,10 +87,11 @@ class HackRTH(toga.App):
         self.main_window.content = new_box
 
     def points_view(self, widget):
-        new_box = toga.Box()
+        new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View Points'
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         new_box.add(toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3)))  
+        new_box.add(toga.Button('Reset', on_press=self.reset_view, style=Pack(padding=3)))
         new_box.add(toga.Label("You have got  points."))     
         self.main_window.content = new_box
 
@@ -99,6 +100,13 @@ class HackRTH(toga.App):
         self.main_window.title = 'Redeem Points'
         #new_box.add(toga.Label(redeem()))
         new_box.add(toga.Button('Finish', on_press=self.main_view, style=Pack(padding=3)))
+        self.main_window.content = new_box
+
+    def reset_view(self, widget):
+        new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
+        self.main_window.title = 'Reset Points'
+        new_box.add(toga.Label("Your point has been reset"))
+        new_box.add(toga.Button('Complete', on_press=self.main_view, style=Pack(padding=3)))
         self.main_window.content = new_box
 
     def store_data(self, widget):
