@@ -65,7 +65,8 @@ def print_menu():
     option2 = f'Climb {num_stairs} stairs'
 
     option3 = f'Do {num_pushups} pushups'
+
+    option_list = [option1, option2, option3]
     
-    print(f'Tasks for today: \n1.{option1}\n2. {option2}\n3. {option3}')
-
-
+    print(f'Tasks for today: \n1.{option_list[0]}\n2. {option_list[1]}\n3. {option_list[2]}')
+    return option_list
