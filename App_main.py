@@ -2,7 +2,9 @@
 Code to change 2022
 RTHbuddy sponsoredbyRTH
 """
+
 import refresh_user_menu as rum
+import qr_gen as qrg
 
 class users:
     def __init__(self, name, points, task_history):
@@ -39,7 +41,8 @@ def verifytask_type3():
 
 def redeem():
     '''Will implant to generate a QR code for scanning to redeem the points'''
-    return
+    qr_code = qrg.qr_gen()
+    return qr_code
 
 def task_menu():
     time = 6
