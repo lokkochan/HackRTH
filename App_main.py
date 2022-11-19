@@ -54,7 +54,9 @@ def redeem():
 
 
 def main():
-
+    #read history of the user
+    history_list=[]
+    new_task=[]
 
 
 
