@@ -68,5 +68,5 @@ def print_menu():
 
     option_list = [option1, option2, option3]
     
-    print(f'Tasks for today: \n1.{option_list[0]}\n2. {option_list[1]}\n3. {option_list[2]}')
+    #print(f'Tasks for today: \n1.{option_list[0]}\n2. {option_list[1]}\n3. {option_list[2]}')
     return option_list
