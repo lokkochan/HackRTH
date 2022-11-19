@@ -15,10 +15,13 @@ class users:
 
 
     def checkhist(self):
-        print("{:<10} {:<30} {:<12}".format('Date','Task', 'Difficulity'))
+        print("{:<10} {:<30}".format('Date','Task'))
         for i in range(len(self.task_history)):
-            print("{:<10} {:<30} {:<12}".format(self.task_history[i][0],self.task_history[i][1],self.task_history[i][2]))
+            print("{:<10} {:<30}".format(self.task_history[i][0],self.task_history[i][1]))
         
+    def new_task_done(self,new_task):
+        self.task_history.append(new_task)
+
 
 
 
@@ -66,17 +69,25 @@ def menu():
 
 
 def main():
-    user
     #read history of the user
     history_list=[]
-    new_task=[]
+    name=input("Please enter your name: ")
+    user=users(name,history_list)
+    new_task_done=[]
     choice=0
     while choice==0:
         choice=menu()
         if choice ==1:
             task_list=task_menu()
+            #function for menu for do, verify and record task
             
         elif choice==2:
+            user.checkhist()
+
+        elif choice==3:
+            user.checkpoints()
+
+        
 
 
 
