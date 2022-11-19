@@ -39,6 +39,7 @@ class HackRTH(toga.App):
     def task_view(self, widget):
         new_box = toga.Box()
         self.main_window.title = 'View Tasks'
+        new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         self.main_window.content = new_box
 
         # path_label = toga.Label(str(toga.app().paths))
