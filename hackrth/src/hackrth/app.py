@@ -6,6 +6,8 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 from . import refresh_user_menu as rum
 # import qr_gen as qrg
+
+
 def task_menu():
     # time = 6
     # days_passed = 0
@@ -23,8 +25,8 @@ def task_menu():
     #         time += 1 
     return rum.print_menu()
 
-class HackRTH(toga.App):
 
+class HackRTH(toga.App):
     def startup(self):
         """
         Construct and show the Toga application.
@@ -33,13 +35,13 @@ class HackRTH(toga.App):
         We then create a main window (with a name matching the app), and
         show the main window.
         """
-##create window
+        # create window
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_view()
         self.main_window.show()
 
     def main_view(self, widget=None):
-        ##split 2 into view and start up
+        # split 2 into view and start up
         main_box = toga.Box(style=Pack(direction=COLUMN, padding=2))
         view_options = [
             toga.Button('View Tasks', on_press=self.task_view, style=Pack(padding=3)),
@@ -64,9 +66,6 @@ class HackRTH(toga.App):
         for options in view_options:
             new_box.add(options)
         self.main_window.content = new_box
-
-
-
 
     def history_view(self, widget):
         new_box = toga.Box()
