@@ -3,10 +3,10 @@ import qrcode
 
 def qr_gen():
     qr = qrcode.QRCode(
-        version = 1
-        box_size = 16
-        border = 4
-        )
+        version = 1,
+        box_size = 16,
+        border = 4,
+    )
     qr.add_data()
     qr.make(fit = True)
 
