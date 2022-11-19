@@ -91,7 +91,7 @@ class HackRTH(toga.App):
         self.main_window.title = 'View Points'
         new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
         new_box.add(toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3)))  
-        new_box.add(toga.Button('Reset', on_press=self.reset_view, style=Pack(padding=3)))
+        new_box.add(toga.Button('Reset', on_press=self.confirmation_view, style=Pack(padding=3)))
     
         new_box.add(toga.Label("You have got  points."))     
         self.main_window.content = new_box
@@ -101,6 +101,13 @@ class HackRTH(toga.App):
         self.main_window.title = 'Redeem Points'
         #new_box.add(toga.Label(redeem()))
         new_box.add(toga.Button('Finish', on_press=self.main_view, style=Pack(padding=3)))
+        self.main_window.content = new_box
+
+    def confirmation_view(self, widget):
+        new_box = toga.Box(style=Pack(direction=COLUMN, padding=4))
+        self.main_window.title = 'Confirmation Reset'
+        new_box.add(toga.Button('Yes', on_press=self.reset_view, style=Pack(padding=3)))
+        new_box.add(toga.Button('No', on_press=self.points_view, style=Pack(padding=3)))
         self.main_window.content = new_box
 
     def reset_view(self, widget):
