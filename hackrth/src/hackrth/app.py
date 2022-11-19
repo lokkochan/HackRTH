@@ -45,8 +45,8 @@ class HackRTH(toga.App):
         main_box = toga.Box(style=Pack(direction=COLUMN, padding=2))
         view_options = [
             toga.Button('View Tasks', on_press=self.task_view, style=Pack(padding=3)),
-            toga.Button('View History', on_press=self.history_view, style=Pack(padding=3)),
-            toga.Button('View Points', on_press=self.points_view, style=Pack(padding=3)),
+            toga.Button('View History', on_press=self.task_view, style=Pack(padding=3)),
+            toga.Button('View Points', on_press=self.task_view, style=Pack(padding=3)),
         ]
         for options in view_options:
             main_box.add(options)
@@ -60,13 +60,20 @@ class HackRTH(toga.App):
         new_box.add(toga.Divider())
         task_list = task_menu()
         view_options = [
-            toga.Button(task_list[0], on_press=self.task_view, style=Pack(padding=3)),
-            toga.Button(task_list[1], on_press=self.history_view, style=Pack(padding=3)),
-            toga.Button(task_list[2], on_press=self.points_view, style=Pack(padding=3)),
+            toga.Button((task_list[0][0]+'  '+str(task_list[0][1])), on_press=self.work_done_view, style=Pack(padding=3)),
+            toga.Button((task_list[1][0]+'  '+str(task_list[1][1])), on_press=self.work_done_view, style=Pack(padding=3)),
+            toga.Button((task_list[2][0]+'  '+str(task_list[2][1]), on_press=self.work_done_view, style=Pack(padding=3)),
         ]
         for options in view_options:
             new_box.add(options)
         self.main_window.content = new_box
+
+    def work_done_view(self, widget):
+        new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
+        self.main_window.title = 'View Tasks'
+        
+        new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
+
 
     def history_view(self, widget):
         new_box = toga.Box()
