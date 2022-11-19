@@ -75,7 +75,7 @@ def main():
     user=users(name,history_list)
     new_task_done=[]
     choice=0
-    while choice==0:
+    while choice!=4:
         choice=menu()
         if choice ==1:
             task_list=task_menu()
@@ -86,6 +86,10 @@ def main():
 
         elif choice==3:
             user.checkpoints()
+            #function for menu for using points
+
+        elif choice!=4:
+            print("Invalid input")
 
         
 
