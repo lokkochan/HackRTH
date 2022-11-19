@@ -5,6 +5,7 @@ RTHbuddy sponsoredbyRTH
 
 import refresh_user_menu as rum
 import qr_gen as qrg
+reward_points = 0
 
 class users:
     def __init__(self, name, points, task_history):
@@ -40,8 +41,7 @@ def verifytask_type3():
     return True
 
 def redeem():
-    '''Will implant to generate a QR code for scanning to redeem the points'''
-    qr_code = qrg.qr_gen()
+    qr_code = qrg.qr_gen(reward_points)
     return qr_code
 
 def task_menu():
