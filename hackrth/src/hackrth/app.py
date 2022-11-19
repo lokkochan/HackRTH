@@ -40,7 +40,7 @@ class HackRTH(toga.App):
         new_box = toga.Box()
         self.main_window.title = 'View Tasks'
         self.main_window.content = new_box
-]
+
         # path_label = toga.Label(str(toga.app().paths))
         # time = 6
         # days_passed = 0
