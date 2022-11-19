@@ -7,20 +7,21 @@ from toga.style.pack import COLUMN, ROW
 from . import refresh_user_menu as rum
 # import qr_gen as qrg
 def task_menu():
-    time = 6
-    days_passed = 0
+    # time = 6
+    # days_passed = 0
 
-    #refresh menu
-    if time != 6:
-        #wait 1 hour
-        time += 1
-        if time == 24:
-            time = 0
-            days_passed += 1
-        else:
-            rum.print_menu()
-            #wait 1 hour
-            time += 1 
+    # #refresh menu
+    # if time != 6:
+    #     #wait 1 hour
+    #     time += 1
+    #     if time == 24:
+    #         time = 0
+    #         days_passed += 1
+    #     else:
+    #         rum.print_menu()
+    #         #wait 1 hour
+    #         time += 1 
+    return rum.print_menu()
 
 class HackRTH(toga.App):
 
