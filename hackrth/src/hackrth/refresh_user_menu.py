@@ -48,17 +48,17 @@ def print_menu():
         num_stairs = 10 * diff2
 
     if diff3 == 1:
-        num_stairs = 5 * diff3
+        num_pushups = 5 * diff3
     elif diff3 == 2:
-        num_stairs = 5 * diff3
+        num_pushups = 5 * diff3
     elif diff3 ==3:
-        num_stairs = 5 * diff3
+        num_pushups = 5 * diff3
     elif diff3 ==4:
-        num_stairs =  5 * diff3
+        num_pushups =  5 * diff3
     elif diff3 ==5:
-        num_stairs = 5 * diff3
+        num_pushups = 5 * diff3
     elif diff3 ==6:
-        num_stairs = 5 * diff3
+        num_pushups = 5 * diff3
 
     option1 = f'{action} {distance} km.'
 
