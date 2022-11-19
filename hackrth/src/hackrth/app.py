@@ -79,7 +79,6 @@ class HackRTH(toga.App):
         #points+=points_in
         self.main_window.content = new_box
 
-
     def history_view(self, widget):
         new_box = toga.Box()
         self.main_window.title = 'View History'
