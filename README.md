@@ -11,7 +11,8 @@ Hackathon 11/2022 UofC
 <!-- tocstop -->
 
 ## Introduction
-Health ......
+Let the users do some exercise tasks, so that can gain some points, which can redeem in some shops
+Go to [This website](http://101.132.227.6:3554) (My server) to see the demo for shops. 
 
 ## Build Instructions
 ### Requirements
@@ -34,5 +35,5 @@ To run locally,
 briefcase dev
 ```
 ## Contact
-
+The 3 contributors
 ## License
