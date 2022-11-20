@@ -174,7 +174,7 @@ class HackRTH(toga.App):
         new_box.add(toga.Label(f'You have redeemed {points_to_redeem} points.'))
         new_box.add(toga.Label(f'Your redeem code is {random.randint(100000, 999999)}'))
         self.data['points'] -= points_to_redeem
-        self.data['history'].append(['redeem', -points_to_redeem])
+        self.data['history'].append(['Redeem', -points_to_redeem])
         self.save_data()
         self.main_window.content = new_box
 
