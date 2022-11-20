@@ -20,6 +20,11 @@ Go to [This website](http://101.132.227.6:3554) (My server) to see the demo for 
 ```shell
 pip install -r requirements.txt
 ```
+To install the android environment, it's necessory to create an app and you can be deleted afterwards: 
+```shell
+briefcase new
+briefcase create android
+```
 ### Build
 ```shell
 cd hackrth
