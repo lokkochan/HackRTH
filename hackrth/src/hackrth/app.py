@@ -158,6 +158,7 @@ class HackRTH(toga.App):
     def redeem_view(self, widget):
         new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'Redeem Points'
+        code = random.randint(100000, 999999)
         if widget.id == 'custom':
             points_to_redeem = int(self.custom_amount_of_points.value)
             if points_to_redeem > self.data['points']:
@@ -167,18 +168,16 @@ class HackRTH(toga.App):
                 return
         else:
             points_to_redeem = int(widget.id)
-            new_box.add(toga.Button('Back', on_press=self.redeem_selection_view, style=Pack(padding=3)))
-            new_box.add(toga.Label(f'You have redeemed {points_to_redeem} points.'))
-            code = random.randint(100000, 999999)
-            new_box.add(toga.Label(f'Your redeem code is {code}'))
         try:
             urllib.request.urlopen(f'http://101.132.227.6:3554/add_code?code={code}&points={points_to_redeem}')
         except:
             new_box.add(toga.Label('Failed to connect to server.'))
-        else:
-            self.data['points'] -= points_to_redeem
-            self.data['history'].append(['Redeem', -points_to_redeem])
-            self.save_data()
+        new_box.add(toga.Button('Back', on_press=self.redeem_selection_view, style=Pack(padding=3)))
+        new_box.add(toga.Label(f'You have redeemed {points_to_redeem} points.'))
+        new_box.add(toga.Label(f'Your redeem code is {code}'))
+        self.data['points'] -= points_to_redeem
+        self.data['history'].append(['Redeem', -points_to_redeem])
+        self.save_data()
         self.main_window.content = new_box
 
     def confirm_reset_view(self, widget):
