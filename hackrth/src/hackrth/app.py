@@ -100,9 +100,9 @@ class HackRTH(toga.App):
         task_list = rum.print_menu()
         new_box = toga.Box(children=[
             toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)),
-            toga.Box(children=[toga.Button((task_list[0][0]), on_press=self.work_done_view, style=Pack(padding=3), id=f'{task_list[0][1]},{0}'), toga.Label(f'{str(task_list[0][1])} points')], style=Pack(direction=ROW, padding=3, alignment='right')),
-            toga.Box(children=[toga.Button((task_list[1][0]), on_press=self.work_done_view, style=Pack(padding=3), id=f'{task_list[1][1]},{1}'), toga.Label(f'{str(task_list[1][1])} points')], style=Pack(direction=ROW, padding=3, alignment='right')),
-            toga.Box(children=[toga.Button((task_list[2][0]), on_press=self.work_done_view, style=Pack(padding=3), id=f'{task_list[2][1]},{2}'), toga.Label(f'{str(task_list[2][1])} points')], style=Pack(direction=ROW, padding=3, alignment='right'))
+            toga.Box(children=[toga.Button((task_list[0][0]), on_press=self.work_done_view, style=Pack(padding=3), id=f'{task_list[0][1]},{task_list[0][0]}'), toga.Label(f'{str(task_list[0][1])} points')], style=Pack(direction=ROW, padding=3, alignment='right')),
+            toga.Box(children=[toga.Button((task_list[1][0]), on_press=self.work_done_view, style=Pack(padding=3), id=f'{task_list[1][1]},{task_list[1][0]}'), toga.Label(f'{str(task_list[1][1])} points')], style=Pack(direction=ROW, padding=3, alignment='right')),
+            toga.Box(children=[toga.Button((task_list[2][0]), on_press=self.work_done_view, style=Pack(padding=3), id=f'{task_list[2][1]},{task_list[2][0]}'), toga.Label(f'{str(task_list[2][1])} points')], style=Pack(direction=ROW, padding=3, alignment='right'))
         ], style=Pack(direction=COLUMN, padding=3))
         self.main_window.content = new_box
 
@@ -111,7 +111,7 @@ class HackRTH(toga.App):
         self.main_window.title = 'Work Done'
         points_gained, task_type = widget.id.split(',')
         new_box.add(toga.Label(f"Congrats!! you earn {points_gained} points~"))
-        points_gained, task_type = int(points_gained), int(task_type)
+        points_gained, task_type = int(points_gained), task_type
         new_box.add(toga.Button('Complete', on_press=self.main_view, style=Pack(padding=3)))
         self.data['points'] += points_gained
         self.data['history'].append([task_type, points_gained])
@@ -119,9 +119,12 @@ class HackRTH(toga.App):
         self.main_window.content = new_box
 
     def history_view(self, widget):
-        new_box = toga.Box()
+        new_box = toga.Box(children=[
+            toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)),
+            toga.ScrollContainer(content=toga.Box(children=[toga.Label(f'{task_type}: {points}') for task_type, points in self.data['history']], style=Pack(direction=COLUMN, padding=3)))
+        ], style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View History'
-        new_box.add(toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)))
+        new_box.add()
         self.main_window.content = new_box
 
     def points_view(self, widget):
@@ -192,8 +195,6 @@ class HackRTH(toga.App):
     def save_data(self):
         with open(self.data_dir, 'w') as f:
             json.dump(self.data, f)
-        with open(self.data_dir) as f:
-            print(f'saved data: {f.read()}')
 
 
 def main():
