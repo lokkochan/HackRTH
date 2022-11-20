@@ -15,6 +15,11 @@ def print_menu():
         diff2 = random.randint(1,6)
         diff3 = random.randint(1,6)
 
+    if (diff1 < 4 and diff2 < 4 and diff3 < 4):
+        diff1 = random.randint(1,6)
+        diff2 = random.randint(1,6)
+        diff3 = random.randint(1,6)
+
     if diff1 == 1:
         distance = 1
         action = 'Walk'
