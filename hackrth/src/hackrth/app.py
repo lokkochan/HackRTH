@@ -163,22 +163,23 @@ class HackRTH(toga.App):
         self.main_window.content = new_box
 
     def redeem_selection_view(self, widget):
-        self.custom_amount_of_points = toga.TextInput(style=Pack(flex=1))
-        new_box = toga.Box(children=[
-            toga.Button('Back', on_press=self.points_view, style=Pack(padding=3)),
-            toga.Label('How much points do you want to redeem?')
-        ], style=Pack(direction=COLUMN, padding=3))
-        for i in (20, 100, 200, 500):
-            if self.data['points'] >= i:
-                new_box.add(toga.Button(f'{i} points', on_press=self.redeem_view, style=Pack(padding=3), id=str(i)))
-        if self.data['points'] > 0:
-            new_box.add(
-                toga.Label('\nCustom amount: '),
-                self.custom_amount_of_points,
-                toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3), id='custom')
-            )
-        self.main_window.title = 'Redeem Points'
-        self.main_window.content = new_box
+        while self.custom_amount_of_points.value.isnumeric()==False:
+            self.custom_amount_of_points = toga.TextInput(style=Pack(flex=1))
+            new_box = toga.Box(children=[
+                toga.Button('Back', on_press=self.points_view, style=Pack(padding=3)),
+                toga.Label('How much points do you want to redeem?')
+            ], style=Pack(direction=COLUMN, padding=3))
+            for i in (20, 100, 200, 500):
+                if self.data['points'] >= i:
+                    new_box.add(toga.Button(f'{i} points', on_press=self.redeem_view, style=Pack(padding=3), id=str(i)))
+            if self.data['points'] > 0:
+                new_box.add(
+                    toga.Label('\nCustom amount: '),
+                    self.custom_amount_of_points,
+                    toga.Button('Redeem', on_press=self.redeem_view, style=Pack(padding=3), id='custom')
+                )
+            self.main_window.title = 'Redeem Points'
+            self.main_window.content = new_box
 
     def redeem_view(self, widget):
         new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
