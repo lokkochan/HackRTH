@@ -199,7 +199,7 @@ class HackRTH(toga.App):
         code = random.randint(100000, 999999)
         new_box.add(toga.Label(f'Your redeem code is {code}'))
         try:
-            urllib.request.urlopen(f'http://127.0.0.1:8000/add_code?code={code}&points={points_to_redeem}')
+            urllib.request.urlopen(f'http://101.132.227.6:3554/add_code?code={code}&points={points_to_redeem}')
         except:
             new_box.add(toga.Label('Failed to connect to server.'))
         else:
