@@ -177,9 +177,9 @@ class HackRTH(toga.App):
         except:
             new_box.add(toga.Label('Failed to connect to server.'))
         else:
-        self.data['points'] -= points_to_redeem
-        self.data['history'].append(['Redeem', -points_to_redeem])
-        self.save_data()
+            self.data['points'] -= points_to_redeem
+            self.data['history'].append(['Redeem', -points_to_redeem])
+            self.save_data()
         self.main_window.content = new_box
 
     def confirm_reset_view(self, widget):
