@@ -82,6 +82,6 @@ def submit(request):  # Use code
 def add_code(request):
     code = request.GET['code']
     points = request.GET['points']
-    data['codes'][str(code)] =  points
+    data['codes'][str(code)] = points
     save_data(data)
     return JsonResponse({'success': 0})

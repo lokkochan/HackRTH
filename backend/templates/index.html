@@ -8,7 +8,7 @@
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('GET', 'submit?code='+document.getElementById('redeem_code').value, true);
             httpRequest.send();
-            httpRequest.onreadystatechange = function () {
+            httpRequest.onreadystatechange = function (request) {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     document.getElementById('redeem').setAttribute('disabled', 'disabled');
                     let json = JSON.parse(httpRequest.responseText);
