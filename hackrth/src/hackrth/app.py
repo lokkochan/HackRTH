@@ -179,7 +179,7 @@ class HackRTH(toga.App):
             self.data['points'] -= points_to_redeem
             self.data['history'].append(['Redeem', -points_to_redeem])
             self.save_data()
-            self.main_window.content = new_box
+        self.main_window.content = new_box
 
     def confirm_reset_view(self, widget):
         new_box = toga.Box(children=[

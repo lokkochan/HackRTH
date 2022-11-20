@@ -12,7 +12,13 @@
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     document.getElementById('redeem').setAttribute('disabled', 'disabled');
                     let json = JSON.parse(httpRequest.responseText);
-                    document.getElementById('result').innerHTML = `This code worth ${json['points']} points`
+                    let t
+                    if (json['success']===0){
+                        t = `This code worth ${json['points']} points`
+                    } else{
+                        t = json['error']
+                    }
+                    document.getElementById('result').innerHTML = t
                 }
             };
         }
@@ -29,7 +35,7 @@
     <span>Please input redeem code: </span>
     <input type="text" id="redeem_code" name="redeem_code">
     <button id="redeem" onclick="submit_()">Redeem</button>
-    <span id="result"></span>
+    <br><span id="result"></span>
     <button onclick="reset_()">Reset</button>
 </body>
 </html>
