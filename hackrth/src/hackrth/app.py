@@ -121,10 +121,31 @@ class HackRTH(toga.App):
     def history_view(self, widget):
         new_box = toga.Box(children=[
             toga.Button('Back', on_press=self.main_view, style=Pack(padding=3)),
+            toga.Button('Clear History', on_press=self.clear_confirm_view, style=Pack(padding=3)),
             toga.ScrollContainer(content=toga.Box(children=[toga.Label(f'{task_type}: {points}') for task_type, points in self.data['history']], style=Pack(direction=COLUMN, padding=3)))
         ], style=Pack(direction=COLUMN, padding=3))
         self.main_window.title = 'View History'
         new_box.add()
+        self.main_window.content = new_box
+
+    def clear_confirm_view(self, widget):
+        new_box = toga.Box(children=[
+            toga.Label('Are you sure you want to clear your history?'),
+            toga.Box(children=[
+                toga.Button('Yes', on_press=self.clear_history_view, style=Pack(padding=3)),
+                toga.Button('No', on_press=self.history_view, style=Pack(padding=3))
+            ], style=Pack(direction=ROW, padding=2))
+        ], style=Pack(direction=COLUMN, padding=3))
+        self.main_window.title = 'Reset Points'
+        self.main_window.content = new_box
+
+    def clear_history_view(self, widget):
+        new_box = toga.Box(style=Pack(direction=COLUMN, padding=3))
+        self.main_window.title = 'Clear History'
+        new_box.add(toga.Label("Your history has been cleared"))
+        new_box.add(toga.Button('Complete', on_press=self.main_view, style=Pack(padding=3)))
+        self.data['history'] = []
+        self.save_data()
         self.main_window.content = new_box
 
     def points_view(self, widget):
