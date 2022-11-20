@@ -163,12 +163,18 @@ class HackRTH(toga.App):
         self.main_window.title = 'Redeem Points'
         if widget.id == 'custom':
             points_to_redeem = int(self.custom_amount_of_points.value)
+            if points_to_redeem > self.data['points']:
+                new_box.add(toga.Label(f'You do not have enough points!\n You have {self.data["points"]} points, but you want to redeem {points_to_redeem} points.'))
+                new_box.add(toga.Button('Back', on_press=self.redeem_selection_view, style=Pack(padding=3)))
+                self.main_window.content = new_box
+                return
         else:
             points_to_redeem = int(widget.id)
         new_box.add(toga.Button('Back', on_press=self.redeem_selection_view, style=Pack(padding=3)))
         new_box.add(toga.Label(f'You have redeemed {points_to_redeem} points.'))
         new_box.add(toga.Label(f'Your redeem code is {random.randint(100000, 999999)}'))
         self.data['points'] -= points_to_redeem
+        self.data['history'].append(['redeem', -points_to_redeem])
         self.save_data()
         self.main_window.content = new_box
 
