@@ -55,10 +55,10 @@ def task_menu():
         if time == 24:
             time = 0
             days_passed += 1
-        else:
-            rum.print_menu()
-            #wait 1 hour
-            time += 1 
+    else:
+        rum.print_menu()
+        #wait 1 hour
+        time += 1 
 
 
 
