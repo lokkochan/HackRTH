@@ -71,6 +71,7 @@ class HackRTH(toga.App):
             toga.Button('View Tasks', on_press=self.task_view, style=Pack(padding=3)),
             toga.Button('View History', on_press=self.history_view, style=Pack(padding=3)),
             toga.Button('View Points', on_press=self.points_view, style=Pack(padding=3)),
+            toga.Button('Log out', on_press=self.ask_for_name_view, style=Pack(padding=3))
         ], style=Pack(direction=COLUMN, padding=2))
         self.main_window.title = self.formal_name
         self.main_window.content = main_box
