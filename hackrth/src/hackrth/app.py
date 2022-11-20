@@ -4,6 +4,7 @@ Try to create an Andriod app
 import os
 import random
 import json
+import urllib.request
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -195,10 +196,16 @@ class HackRTH(toga.App):
             points_to_redeem = int(widget.id)
         new_box.add(toga.Button('Back', on_press=self.redeem_selection_view, style=Pack(padding=3)))
         new_box.add(toga.Label(f'You have redeemed {points_to_redeem} points.'))
-        new_box.add(toga.Label(f'Your redeem code is {random.randint(100000, 999999)}'))
-        self.data['points'] -= points_to_redeem
-        self.data['history'].append(['Redeem', -points_to_redeem])
-        self.save_data()
+        code = random.randint(100000, 999999)
+        new_box.add(toga.Label(f'Your redeem code is {code}'))
+        try:
+            urllib.request.urlopen(f'http://127.0.0.1:8000/add_code?code={code}&points={points_to_redeem}')
+        except:
+            new_box.add(toga.Label('Failed to connect to server.'))
+        else:
+            self.data['points'] -= points_to_redeem
+            self.data['history'].append(['Redeem', -points_to_redeem])
+            self.save_data()
         self.main_window.content = new_box
 
     def confirm_reset_view(self, widget):
