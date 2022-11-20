@@ -51,7 +51,7 @@ class HackRTH(toga.App):
         self.main_window.title = self.formal_name
         self.main_window.content = main_box
 
-    def ask_for_name_view(self,widget):
+    def ask_for_name_view(self, widget=None):
         self.main_window.title = 'Welcome to HackRTH'
         self.name_input = toga.TextInput(style=Pack(flex=1))
         self.main_window.content = toga.Box(
